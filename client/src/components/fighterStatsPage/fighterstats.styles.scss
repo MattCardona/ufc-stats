@@ -1,0 +1,31 @@
+#stats_main {
+  text-align: center;
+  border: 2px solid red;
+  margin-left: 60px;
+
+  .fighter_box_bio{
+    border: 1px solid red;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.stats_box {
+  border: 2px solid green;
+  padding: 10px;
+  margin: 20px 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+/* small phones to small tablets: from 481 to 767 pixels */
+@media only screen and (max-width: 767px) {
+  .stats_box {
+    padding: 10px;
+    margin: 10px;
+    // margin-left: 80px;
+  }
+}

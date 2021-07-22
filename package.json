@@ -1,0 +1,26 @@
+{
+  "name": "fighter-dashboard-w-recoil-backend",
+  "version": "1.0.0",
+  "description": "\"Best ufc backend\"",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "start-nodemon": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm start --prefix client",
+    "nodemon-dev": "concurrently \"npm run start-nodemon\" \"npm run chromeClient\"",
+    "chromeClient": "npm run starter --prefix client",
+    "dev": "concurrently \"npm run start\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "MattC",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.0",
+    "axios": "^0.21.1",
+    "concurrently": "^6.2.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  }
+}
