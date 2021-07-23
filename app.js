@@ -61,6 +61,16 @@ app.get("/fighters/:id", (req, res) => {
 });
 
 
+if (process.env.NODE_ENV === "production") {
+  // set my static folder
+  app.use(express.static("client/build"));
+  // anything besides the api routes load
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 })
