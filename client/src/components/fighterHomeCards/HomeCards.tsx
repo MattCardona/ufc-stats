@@ -14,7 +14,6 @@ const HomeCards = ({ fighter }: PropFighter) => {
         to={`/fighter/${fighter._id}`}
       >
         <p>{fighter.First_Name} {fighter.Last_Name}</p>
-        <p>Nickname {fighter.Nickname}</p>
         <p>Record: {fighter.Record}</p>
       </Link>
     </div>
