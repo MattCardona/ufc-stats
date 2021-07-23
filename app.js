@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const { removeWhiteSpaceFighters } = require("./fighterFakedata");
 const Fighters = require('./models/fighters');
 const async = require("async")
+const path = require("path");
 mongoose.connect(process.env.DB_HOST_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
