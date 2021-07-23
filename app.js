@@ -33,10 +33,10 @@ const func = () => {
 
 
 
-app.get("/", (req, res) => {
-  // func();
-  return res.send("hello")
-})
+// app.get("/", (req, res) => {
+//   // func();
+//   return res.send("hello")
+// })
 
 app.get("/fighters", (req, res) => {
   Fighters.find({})
