@@ -25,9 +25,7 @@ const Piechart = ({ data, text }: PieData) => (
     className="pie_chart"
 
   >
-    <h3
-      style={{ margin: "0px", padding: "0px" }}
-    >{text}</h3>
+    <h3>{text}</h3>
     <ResponsivePie
       data={data}
       margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
@@ -37,13 +35,13 @@ const Piechart = ({ data, text }: PieData) => (
       activeOuterRadiusOffset={8}
       borderWidth={1}
       colors={["#80ffdb", "#64dfdf", "#56cfe1", "#5390d9"]}
-      borderColor={{ from: 'colors', modifiers: [['darker', 0.7]] }}
+      borderColor={"aliceblue"}
       arcLinkLabelsSkipAngle={10}
-      arcLinkLabelsTextColor="#333333"
+      arcLinkLabelsTextColor="aliceblue"
       arcLinkLabelsThickness={2}
-      arcLinkLabelsColor={{ from: 'color' }}
+      arcLinkLabelsColor={"aliceblue"}
       arcLabelsSkipAngle={10}
-      arcLabelsTextColor={{ from: 'color', modifiers: [['darker', 3]] }}
+      arcLabelsTextColor={"black"}
       legends={[
         {
           anchor: 'bottom',
@@ -63,7 +61,7 @@ const Piechart = ({ data, text }: PieData) => (
             {
               on: 'hover',
               style: {
-                itemTextColor: '#000'
+                itemTextColor: 'black"'
               }
             }
           ]

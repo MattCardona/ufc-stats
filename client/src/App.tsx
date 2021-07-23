@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/homepage/Home';
 import FighterStatsTwo from "./components/fighterStatsPage/FighterStatsTwo"
 import { RecoilRoot } from 'recoil';
+import "./index.css"
+import NotFound from './components/NotFound';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -13,6 +15,7 @@ const App: React.FunctionComponent = () => {
           <Switch>
             <Route path="/" component={Home} exact />
             <Route path="/fighter/:id" component={FighterStatsTwo} exact />
+            <Route component={NotFound} />
           </Switch>
         </React.Suspense>
       </BrowserRouter>

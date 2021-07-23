@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { atom, selector } from 'recoil'
+import { atom } from 'recoil'
 import { Fighter } from '../types'
 
 
@@ -23,7 +23,6 @@ export const fighterState = atom({
   default: setStatefun()
 })
 
-let fighterById: Fighter;
 
 export const specificFighter = atom({
   key: "specificFighter",

@@ -1,5 +1,15 @@
 #home_page {
+  // background-color: #264653;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.home_page_header {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  @media only screen and (max-width: 767px) {
+    padding: 30px;
+  }
 }

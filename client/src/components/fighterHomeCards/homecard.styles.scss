@@ -1,6 +1,27 @@
 .card_component {
-  border: 1px solid red;
+  // border: 1px solid red;
+  background-color: #1d283c;
+  border-radius: 10px;
   padding: 10px;
   margin: 30px;
+  width: 20%;
   text-align: center;
+  box-shadow: 0 0 10px #182132;
+  box-shadow: 0 0 10px #182132;
+
+
+  a {
+    color: azure;
+    text-decoration: none;
+  }
+
+  @media only screen and (max-width: 800px) {
+    width: 30%;
+  }
+}
+
+.card_component:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #99bdff;
+  box-shadow: 0 0 10px #99bdff;
 }

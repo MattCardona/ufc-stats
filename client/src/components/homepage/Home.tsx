@@ -9,9 +9,12 @@ import "./home.styles.scss"
 const Home = () => {
   const getFighters = useRecoilValue(fighterState)
   return (
-    <div id="home_page">
-      {getFighters && getFighters.map((fighter: Fighter) => <HomeCards key={fighter._id} fighter={fighter} />)}
-    </div>
+    <>
+      <h1 className="home_page_header">The best UFC fighter stats website ever!</h1>
+      <div id="home_page" >
+        {getFighters && getFighters.map((fighter: Fighter) => <HomeCards key={fighter._id} fighter={fighter} />)}
+      </div>
+    </>
   )
 }
 

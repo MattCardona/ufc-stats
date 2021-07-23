@@ -262,11 +262,7 @@ const FighterStats = (props: FighterStatsProps) => {
                 <div>
                   <div className="fighter_box_bio">
                     <h3>Weight Class {fighter.class}</h3>
-                    <ul
-                      style={{
-                        listStyle: "none"
-                      }}
-                    >
+                    <ul>
                       <li><p>Wins: {fighter.extras.record.wins.total} Loses: {fighter.extras.record.losses.total} Draws: {fighter.Draws}</p></li>
                       <li><p>Weight: {fighter.Weight} lbs</p></li>
                       <li><p>Reach: {fighter.Reach}</p></li>
@@ -282,37 +278,46 @@ const FighterStats = (props: FighterStatsProps) => {
                 <PieChart data={recordLosses} text="Losses" />
               </div>
             </Fade>
-
-            <div
-              style={{
-                border: "2px solid green",
-                display: "flex",
-                flexDirection: "column",
-                margin: "10px"
-                // justifyContent: "center"
-              }}
-            >
-              {fighter.extras.fights && fighter.extras.fights.map((fight: Fights) => {
-                return (<div style={{
+            <>
+              <div
+                style={{
+                  border: "2px solid green",
                   display: "flex",
-                  flexWrap: "nowrap",
-                  alignContent: "space-between",
-                  border: "3px solid blue",
-                  margin: "1px 0px"
-
+                  flexDirection: "column",
+                  margin: "10px"
+                  // justifyContent: "center"
                 }}
-                >
-                  <p
-                    style={{ border: "1px solid red", width: "20%", margin: "10px" }}
-                  >{fight.name}</p>
-                  <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.date}</p>
-                  <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.result}</p>
-                  <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.method}</p>
-                  <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.round}</p>
-                  {/* {fight.opponent.name && <p>fight.opponent.name</p>} */}
-                </div>)
-              })}
-            </div>
+              >
+                <h2
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    color: "white",
+                    fontSize: "100px",
+                  }}
+                >Past fights</h2>
+                {fighter.extras.fights && fighter.extras.fights.map((fight: Fights) => {
+                  return (<div style={{
+                    display: "flex",
+                    flexWrap: "nowrap",
+                    alignContent: "space-between",
+                    border: "3px solid blue",
+                    margin: "1px 0px"
+
+                  }}
+                  >
+                    <p
+                      style={{ border: "1px solid red", width: "20%", margin: "10px" }}
+                    >{fight.name}</p>
+                    <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.date}</p>
+                    <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.result}</p>
+                    <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.method}</p>
+                    <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.round}</p>
+                    {/* {fight.opponent.name && <p>fight.opponent.name</p>} */}
+                  </div>)
+                })}
+              </div>
+            </>
 
           </>
         }

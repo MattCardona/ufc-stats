@@ -15,6 +15,7 @@ interface Data {
 
 const MyResponsiveBar = ({ data }: Data) => (
   <div className="chart">
+    <h3>Strikes Per Min</h3>
     <ResponsiveBar
       data={data}
       keys={['Sig.Str_Landed', 'Sig.Str_Absorbed']}
@@ -42,7 +43,7 @@ const MyResponsiveBar = ({ data }: Data) => (
       }}
       labelSkipWidth={12}
       labelSkipHeight={12}
-      labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
+      labelTextColor={"black"}
       legends={
         [
           {

@@ -1,19 +1,25 @@
 #stats_main {
   text-align: center;
-  border: 2px solid red;
+  // border: 2px solid red;
   margin-left: 60px;
 
   .fighter_box_bio{
-    border: 1px solid red;
-    padding: 10px;
+    // border: 1px solid red;
+    padding: 50px;
     margin: 10px;
-    width: 100%;
     border-radius: 10px;
+    text-align: center;
+
+    ul {
+      list-style: none;
+      padding: 0px;
+    }
   }
 }
 
 .stats_box {
-  border: 2px solid green;
+  border: 2px solid #70ffd7;
+  border-radius: 10px;
   padding: 10px;
   margin: 20px 100px;
   display: flex;
@@ -21,11 +27,83 @@
   justify-content: center;
 
 }
+
+#past_fights {
+  border: 1px solid #70ffd7;
+  background-color: #101827;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.past_fights_box {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  // border: 1px solid lime;
+  margin: 10px;
+}
+
+
+
+.past_fights_box p {
+  // border: 1px solid #70ffd7;
+  background-color: #1d283c;
+  border-radius: 5px; 
+  width: 80%;
+  margin: 0px 5px;
+}
+
+.past_fights_box_top{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  // border: 1px solid lime;
+  margin: 10px;
+}
+
+.past_fights_box_top p {
+  width: 80%;
+  margin: 0px 5px;
+  // border: 1px solid #70ffd7;
+  border-radius: 5px;
+  background-color: #1d283c;
+}
+
 /* small phones to small tablets: from 481 to 767 pixels */
 @media only screen and (max-width: 767px) {
   .stats_box {
     padding: 10px;
     margin: 10px;
     // margin-left: 80px;
+  }
+  .past_fights_box_top p{
+    display: none;
+  }
+
+  .past_fights_box_top {
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .past_fights_box_top p:nth-child(1) {
+    display: block;
+    width: 100%;
+  }
+
+  .past_fights_box p {
+    display: none;
+  }
+  .past_fights_box {
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .past_fights_box p:nth-child(1) {
+    display: block;
+    width: 100%;
   }
 }

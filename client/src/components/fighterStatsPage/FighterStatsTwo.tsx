@@ -1,7 +1,6 @@
 import "./fighterstats.styles.scss"
 import React, { useState, useEffect } from 'react'
 import PieChart from '../pieChart/PieChart';
-import { Link } from "react-router-dom";
 import MyResponsiveBar from "../chart/Chart";
 import { Fighter, Fights } from "../../types"
 import SideBarTwo from '../sidebav/SideBarTwo';
@@ -14,10 +13,6 @@ const Fade = require('react-reveal/Fade')
 interface Strikes {
   _Acc?: string | null | undefined,
   _Def?: string | null | undefined,
-}
-
-interface Submissions {
-  _Avg: string | null | undefined,
 }
 
 // need explanation by the team
@@ -49,10 +44,6 @@ interface Record {
   id: string,
   label: string,
   value?: string | number | null
-}
-interface Toggler {
-  strikes: boolean,
-  defense: boolean
 }
 interface ToggleState {
   strike: boolean,
@@ -91,12 +82,12 @@ let deFights = {
   }
 }
 
-let Strikes = {
+let defStrikes = {
   _Acc: "",
   _Def: "",
 }
 
-let Submissions = {
+let defSubmissions = {
   _Avg: "",
 }
 
@@ -114,12 +105,12 @@ let defaultFighter = {
   Reach: "",
   Stance: "",
   SLpM: "",
-  Str: Strikes,
+  Str: defStrikes,
   SApM: "",
   TD_Avg: "",
   TD_Acc: "",
   TD_Def: "",
-  Sub: Submissions,
+  Sub: defSubmissions,
   URL: "",
   nick: "",
   class: "",
@@ -154,20 +145,22 @@ const FighterStats = (props: FighterStatsProps) => {
     } else if (fighter && getUserById._id && fighter.extras) {
       formatDataForStrikes(fighter.Str);
       formatDataForTakeDown(fighter["TD_Avg"], fighter["TD_Acc"], fighter["TD_Def"])
-      console.log(fighter.extras, "in third");
       formatDataForRecord(fighter.extras.record.wins.total, fighter.extras.record.losses.total, fighter.extras.record.no_contest)
       formatDataForRecordWins(fighter.extras.record.wins.knockouts, fighter.extras.record.wins.submissions, fighter.extras.record.wins.decisions)
       formatDataForRecordLoses(fighter.extras.record.losses.knockouts, fighter.extras.record.losses.submissions, fighter.extras.record.losses.decisions)
       toggleStats("bio")
+      return function cleanup() {
+        // console.log("called clean up")
+        setUserById(defaultFighter as Fighter)
+      };
     }
   }, [getUserById, fighter])
   let getFighter = async () => {
     try {
       let { data } = await axios.get(`/fighters/${props.match.params.id}`);
-      console.log(data)
+      // console.log(data)
       await setUserById(data);
       await getUserById;
-      // console.log("called get fighter")
     } catch (error) {
       console.log("There was a error")
     }
@@ -242,8 +235,6 @@ const FighterStats = (props: FighterStatsProps) => {
       value: Math.min(Number(ufcFighterStr["_Def"]))
     }
     ];
-    console.log(data, "form")
-
     setformateStrike(data)
   }
   const formatDataForTakeDown = (tdAvg: Fighter["TD_Avg"], tdAcc: Fighter["TD_Acc"], tdDef: Fighter["TD_Def"]) => {
@@ -329,32 +320,22 @@ const FighterStats = (props: FighterStatsProps) => {
               </div>
             </Fade>
 
-            <div
-              style={{
-                border: "2px solid green",
-                display: "flex",
-                flexDirection: "column",
-                margin: "10px",
-                justifyContent: "center"
-              }}
-            >
+            <div id="past_fights">
+              <h2>Past Fights</h2>
+              <div className="past_fights_box_top">
+                <p>Fight</p>
+                <p>Date</p>
+                <p>Result</p>
+                <p>Method</p>
+                <p>Round</p>
+              </div>
               {fighter.extras?.fights && fighter.extras?.fights.map((fight: Fights) => {
-                return (<div style={{
-                  display: "flex",
-                  flexWrap: "nowrap",
-                  alignContent: "space-between",
-                  border: "3px solid blue",
-                  margin: "1px 0px"
-
-                }}
-                >
-                  <p
-                    style={{ border: "1px solid red", width: "20%", margin: "10px" }}
-                  >{fight.name}</p>
-                  <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.date}</p>
-                  <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.result}</p>
-                  <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.method}</p>
-                  <p style={{ border: "1px solid red", width: "20%", margin: "10px" }}>{fight.round}</p>
+                return (<div key={fight.name} className="past_fights_box">
+                  <p>{fight.name}</p>
+                  <p>{fight.date}</p>
+                  <p>{fight.result}</p>
+                  <p>{fight.method}</p>
+                  <p>{fight.round}</p>
                   {/* {fight.opponent.name && <p>fight.opponent.name</p>} */}
                 </div>)
               })}
