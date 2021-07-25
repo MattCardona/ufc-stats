@@ -293,6 +293,9 @@ const FighterStats = (props: FighterStatsProps) => {
 
         {toggle.bio && !toggle.defense && !toggle.strike &&
           <>
+            <Fade bottom wait={1000}>
+              <img src={`${fighter.image}`} alt="" />
+            </Fade>
             <Fade bottom wait={1000} >
               <div className="stats_box">
                 <PieChart data={record} text="Record" />

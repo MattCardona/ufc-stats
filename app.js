@@ -40,7 +40,7 @@ const func = () => {
 
 app.get("/fighters", (req, res) => {
   Fighters.find({})
-    .select("_id First_Name Last_Name Nickname Record")
+    .select("_id First_Name Last_Name Nickname Record image")
     .exec()
     .then(allfighters => {
       // console.log(allfighters);

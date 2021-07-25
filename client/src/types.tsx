@@ -70,6 +70,7 @@ export interface Fighter {
     fights: [
       Fights
     ]
-  }
+  },
+  image?: string | undefined
 }
 

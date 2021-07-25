@@ -13,6 +13,7 @@ const HomeCards = ({ fighter }: PropFighter) => {
       <Link
         to={`/fighter/${fighter._id}`}
       >
+        <img src={`${fighter.image}`} />
         <p>{fighter.First_Name} {fighter.Last_Name}</p>
         <p>Record: {fighter.Record}</p>
       </Link>
